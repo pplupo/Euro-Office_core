@@ -440,6 +440,7 @@ solutions = [
     depot_env["GCLIENT_SUPPRESS_GIT_VERSION_WARNING"] = "1"
     depot_env["GYP_CHROMIUM_NO_ACTION"] = "1"
     depot_env["DEPOT_TOOLS_WIN_TOOLCHAIN"] = "0"
+    depot_env["DEPOT_TOOLS_UPDATE"] = "0"
 
     if nc.is_windows():
         fake_pipes_shim_path = create_fake_pipes_shim()
