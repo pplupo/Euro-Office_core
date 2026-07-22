@@ -379,6 +379,15 @@ def fetch_and_patch():
         error_is_fatal = False
     )
 
+    # Pin to a known-good revision: depot_tools main is unpinned and moves
+    # continuously upstream, which had drifted gclient_paths.py enough that
+    # gclient_paths.patch (authored against this revision) no longer applied.
+    nc.run_command(
+        [ "git", "checkout", "4e58caf8aa08befe78cf40d08ba33da072b15cf9" ],
+        "Pin depot_tools to known-good revision",
+        depot_tools_path
+    )
+
     # Fetch v8
     print( "Fetching v8" )
     nc.run_command( [ "git", "clone", "https://chromium.googlesource.com/v8/v8.git", v8_src_path ], "Clone v8" )
